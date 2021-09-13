@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - sesion07_cg_mul_a</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div>
+  <button onclick="draw()">Trazar</button>
+  <button onclick="ROTA(1)">Girar Rectangulo 1</button>
+  <button onclick="ROTA(2)">Girar Rectangulo 2</button>
+</div>
+<html>
+  <canvas id="canvas" width="1920" height="1080"></canvas>
+  <script type="text/javascript">
+    var ctx = document.getElementById("canvas").getContext("2d");
+    function ROTA(n) {
+      if (n == 1) {
+        ctx.save();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(30, 30, 100, 100);
+        ctx.translate(80, 80);
+
+        ctx.rotate((Math.PI / 180) * -45);
+        ctx.translate(-80, -80);
+        ctx.fillStyle = "#0095DD";
+        ctx.fillRect(30, 30, 100, 100);
+        ctx.restore();
+      }
+      if (n == 2) {
+        ctx.save();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(150, 30, 100, 100);
+        ctx.translate(200, 80);
+
+        ctx.rotate((Math.PI / 180) * 45);
+        ctx.translate(-200, -80);
+        ctx.fillStyle = "#0095DD";
+        ctx.fillRect(150, 30, 100, 100);
+        ctx.restore();
+      }
+    }
+    function deg2rad(g) {
+      return (Math.PI / 180) * g;
+    }
+    function draw() {
+      //draw first blue rect
+      ctx.save();
+      // blue rect
+      ctx.fillStyle = "#0095DD";
+      ctx.fillRect(30, 30, 100, 100);
+
+      // draw  second blue rect
+      ctx.fillStyle = "#0095DD";
+      ctx.fillRect(150, 30, 100, 100);
+      ctx.restore();
+    }
+  </script>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
